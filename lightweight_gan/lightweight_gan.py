@@ -1125,6 +1125,7 @@ class Trainer():
         self.freq_chan_attn = config.pop('freq_chan_attn', False)
         self.optimizer = config.pop('optimizer', 'adam')
         self.fmap_max = config.pop('fmap_max', 512)
+        self.latent_dim = config.pop('latent_dim', 256)
         del self.GAN
         self.init_GAN()
 
@@ -1137,7 +1138,9 @@ class Trainer():
             'disc_output_size': self.disc_output_size,
             'optimizer': self.optimizer,
             'attn_res_layers': self.attn_res_layers,
-            'freq_chan_attn': self.freq_chan_attn
+            'freq_chan_attn': self.freq_chan_attn,
+            'fmap_max': self.fmap_max,
+            'latent_dim': self.latent_dim,
         }
 
     def set_data_src(self, folder):
